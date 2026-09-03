@@ -1,57 +1,70 @@
-// Patient Interface JavaScript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal</title>
+  <link rel="stylesheet" href="patient.css">
+</head>
+<body>
 
-// Show a particular page
-function showPage(pageId) {
-    const pages = document.querySelectorAll(".page");
+  <!-- 1. Welcome / Home Screen -->
+  <section id="welcome-screen" class="screen active">
+    <div class="card">
+      <h1>Welcome</h1>
+      <p class="subtitle">A simple platform to support cognitive wellbeing.</p>
+      <button id="btn-get-started" class="btn btn-primary">Get Started</button>
+    </div>
+  </section>
 
-    pages.forEach(function(page) {
-        page.classList.add("hidden");
-    });
+  <!-- 2. Login Screen -->
+  <section id="login-screen" class="screen hidden">
+    <div class="card">
+      <h2>Welcome Back</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" id="username" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </section>
 
-    const selectedPage = document.getElementById(pageId);
+  <!-- 3. Patient Dashboard Screen -->
+  <section id="dashboard-screen" class="screen hidden">
+    <header class="dashboard-header">
+      <h1 id="user-greeting">👋 Welcome!</h1>
+      <p class="subtitle">What would you like to do today?</p>
+    </header>
 
-    if (selectedPage) {
-        selectedPage.classList.remove("hidden");
-    }
-}
+    <div class="grid-container">
+      <button class="nav-card" id="btn-games">
+        <span class="icon">🧠</span>
+        <span class="title">Games</span>
+        <span class="desc">Play & train</span>
+      </button>
 
-// Get Started button
-function getStarted() {
-    showPage("loginPage");
-}
+      <button class="nav-card" id="btn-reminders">
+        <span class="icon">🔔</span>
+        <span class="title">Reminders</span>
+        <span class="desc">Your tasks</span>
+      </button>
 
-// Login button
-function loginPatient() {
-    const name = document.getElementById("patientName").value.trim();
-    const password = document.getElementById("patientPassword").value.trim();
+      <button class="nav-card" id="btn-progress">
+        <span class="icon">📊</span>
+        <span class="title">Progress</span>
+        <span class="desc">View growth</span>
+      </button>
+    </div>
 
-    if (name === "" || password === "") {
-        alert("Please enter your name and password.");
-        return;
-    }
+    <button id="btn-logout" class="btn btn-secondary">🚪 Log Out</button>
+  </section>
 
-    document.getElementById("patientWelcome").textContent =
-        "Welcome, " + name + "!";
-
-    showPage("dashboardPage");
-}
-
-// Games
-function openGames() {
-    alert("Cognitive Games module will open here.");
-}
-
-// Reminders
-function openReminders() {
-    alert("Reminders module will open here.");
-}
-
-// Progress
-function openProgress() {
-    alert("Progress module will open here.");
-}
-
-// Logout
-function logoutPatient() {
-    showPage("welcomePage");
-}
+  <script src="patient.js"></script>
+</body>
+</html>
