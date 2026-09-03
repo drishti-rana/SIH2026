@@ -3,67 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patient Portal</title>
+  <title>Patient Portal | Cognitive Wellbeing</title>
   <link rel="stylesheet" href="patient.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- 1. Welcome / Home Screen -->
-  <section id="welcome-screen" class="screen active">
-    <div class="card">
-      <h1>Welcome</h1>
-      <p class="subtitle">A simple platform to support cognitive wellbeing.</p>
-      <button id="btn-get-started" class="btn btn-primary">Get Started</button>
-    </div>
-  </section>
+  <!-- Background Decorative Shapes -->
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
 
-  <!-- 2. Login Screen -->
-  <section id="login-screen" class="screen hidden">
-    <div class="card">
-      <h2>Welcome Back</h2>
-      <form id="login-form">
-        <div class="form-group">
-          <label for="username">Name</label>
-          <input type="text" id="username" placeholder="Enter your name" required>
+  <main class="app-container">
+
+    <!-- 1. Welcome Screen -->
+    <section id="welcome-screen" class="screen active">
+      <div class="card welcome-card">
+        <div class="brand-badge">✨ Care & Support</div>
+        <h1>Welcome to Your Portal</h1>
+        <p class="subtitle">A simple, friendly platform designed to support your daily cognitive wellbeing.</p>
+        <button id="btn-get-started" class="btn btn-primary btn-large">
+          Get Started <span class="arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. Login Screen -->
+    <section id="login-screen" class="screen hidden">
+      <div class="card login-card">
+        <div class="avatar-circle">👤</div>
+        <h2>Welcome Back</h2>
+        <p class="subtitle-sm">Please enter your details to access your dashboard.</p>
+        
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Your Name</label>
+            <input type="text" id="username" placeholder="e.g. Eleanor" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">Login to Dashboard</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. Full-Width Dashboard Screen -->
+    <section id="dashboard-screen" class="screen hidden">
+      <div class="dashboard-wrapper">
+        <header class="dashboard-header">
+          <div class="user-pill">
+            <span class="online-indicator"></span>
+            <span id="user-greeting">👋 Welcome!</span>
+          </div>
+          <h2>What would you like to do today?</h2>
+        </header>
+
+        <div class="grid-container">
+          <!-- Games Card -->
+          <button class="nav-card card-games" id="btn-games">
+            <div class="card-icon-wrapper">🧠</div>
+            <div class="card-content">
+              <span class="title">Cognitive Games</span>
+              <span class="desc">Fun activities to train & sharpen your mind</span>
+            </div>
+            <span class="chevron">›</span>
+          </button>
+
+          <!-- Reminders Card -->
+          <button class="nav-card card-reminders" id="btn-reminders">
+            <div class="card-icon-wrapper">🔔</div>
+            <div class="card-content">
+              <span class="title">Daily Reminders</span>
+              <span class="desc">Check your tasks, schedule & medicine</span>
+            </div>
+            <span class="chevron">›</span>
+          </button>
+
+          <!-- Progress Card -->
+          <button class="nav-card card-progress" id="btn-progress">
+            <div class="card-icon-wrapper">📊</div>
+            <div class="card-content">
+              <span class="title">Your Progress</span>
+              <span class="desc">View your activity summary & growth</span>
+            </div>
+            <span class="chevron">›</span>
+          </button>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-    </div>
-  </section>
 
-  <!-- 3. Patient Dashboard Screen -->
-  <section id="dashboard-screen" class="screen hidden">
-    <header class="dashboard-header">
-      <h1 id="user-greeting">👋 Welcome!</h1>
-      <p class="subtitle">What would you like to do today?</p>
-    </header>
+        <footer class="dashboard-footer">
+          <button id="btn-logout" class="btn btn-secondary">🚪 Log Out</button>
+        </footer>
+      </div>
+    </section>
 
-    <div class="grid-container">
-      <button class="nav-card" id="btn-games">
-        <span class="icon">🧠</span>
-        <span class="title">Games</span>
-        <span class="desc">Play & train</span>
-      </button>
-
-      <button class="nav-card" id="btn-reminders">
-        <span class="icon">🔔</span>
-        <span class="title">Reminders</span>
-        <span class="desc">Your tasks</span>
-      </button>
-
-      <button class="nav-card" id="btn-progress">
-        <span class="icon">📊</span>
-        <span class="title">Progress</span>
-        <span class="desc">View growth</span>
-      </button>
-    </div>
-
-    <button id="btn-logout" class="btn btn-secondary">🚪 Log Out</button>
-  </section>
+  </main>
 
   <script src="patient.js"></script>
 </body>
