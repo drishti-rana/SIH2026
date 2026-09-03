@@ -14,7 +14,7 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f7fb;
+    background-color:red !important;
     color: #25313c;
 }
 
