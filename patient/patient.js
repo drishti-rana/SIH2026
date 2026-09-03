@@ -1,53 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Screen Elements
   const welcomeScreen = document.getElementById('welcome-screen');
   const loginScreen = document.getElementById('login-screen');
   const dashboardScreen = document.getElementById('dashboard-screen');
 
-  // Helper Function: Switch Active Screen
+  // Screen Switcher Logic
   function showScreen(screenToShow) {
     [welcomeScreen, loginScreen, dashboardScreen].forEach(screen => {
-      screen.classList.remove('active');
-      screen.classList.add('hidden');
+      if (screen) {
+        screen.classList.remove('active');
+        screen.classList.add('hidden');
+      }
     });
-    screenToShow.classList.remove('hidden');
-    screenToShow.classList.add('active');
+
+    setTimeout(() => {
+      screenToShow.classList.remove('hidden');
+      screenToShow.classList.add('active');
+    }, 50);
   }
 
   // 1. Welcome -> Login
-  document.getElementById('btn-get-started').addEventListener('click', () => {
-    showScreen(loginScreen);
-  });
+  const btnGetStarted = document.getElementById('btn-get-started');
+  if (btnGetStarted) {
+    btnGetStarted.addEventListener('click', () => {
+      showScreen(loginScreen);
+    });
+  }
 
   // 2. Login -> Dashboard
-  document.getElementById('login-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    
-    if (username.trim()) {
-      document.getElementById('user-greeting').textContent = `👋 Welcome, ${username}!`;
-    }
-    showScreen(dashboardScreen);
-  });
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const usernameInput = document.getElementById('username');
+      const name = usernameInput.value.trim() || "User";
 
-  // 3. Navigation Buttons (Placeholders for integration)
-  document.getElementById('btn-games').addEventListener('click', () => {
-    alert("Navigating to Cognitive Games module...");
-    // Future integration: window.location.href = "../games/games.html";
-  });
+      document.getElementById('user-greeting').textContent = `👋 Welcome, ${name}!`;
+      showScreen(dashboardScreen);
+    });
+  }
 
-  document.getElementById('btn-reminders').addEventListener('click', () => {
-    alert("Navigating to Reminders module...");
-    // Future integration: window.location.href = "../reminders/reminders.html";
-  });
+  // 3. Navigation Placeholders
+  const btnGames = document.getElementById('btn-games');
+  if (btnGames) {
+    btnGames.addEventListener('click', () => {
+      alert("Opening Cognitive Games Module...");
+      // window.location.href = "../games/games.html";
+    });
+  }
 
-  document.getElementById('btn-progress').addEventListener('click', () => {
-    alert("Navigating to Progress module...");
-    // Future integration: window.location.href = "../progress/progress.html";
-  });
+  const btnReminders = document.getElementById('btn-reminders');
+  if (btnReminders) {
+    btnReminders.addEventListener('click', () => {
+      alert("Opening Daily Reminders Module...");
+      // window.location.href = "../reminders/reminders.html";
+    });
+  }
+
+  const btnProgress = document.getElementById('btn-progress');
+  if (btnProgress) {
+    btnProgress.addEventListener('click', () => {
+      alert("Opening Progress Tracker Module...");
+      // window.location.href = "../progress/progress.html";
+    });
+  }
 
   // 4. Logout -> Welcome
-  document.getElementById('btn-logout').addEventListener('click', () => {
-    showScreen(welcomeScreen);
-  });
+  const btnLogout = document.getElementById('btn-logout');
+  if (btnLogout) {
+    btnLogout.addEventListener('click', () => {
+      document.getElementById('login-form').reset();
+      showScreen(welcomeScreen);
+    });
+  }
 });
