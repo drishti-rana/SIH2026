@@ -1,0 +1,87 @@
+/* Requires theme.css to be linked first — uses its CSS variables */
+
+/* Buttons */
+.btn {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  padding: var(--spacing-touch) 24px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.btn:hover { opacity: 0.9; }
+.btn:active { opacity: 0.8; }
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text);
+}
+.btn-large {
+  font-size: var(--font-size-large);
+  padding: 20px 32px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card-guardian {
+  background: var(--guardian-bg);
+}
+
+/* Inputs */
+.input {
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 14px 16px;
+  border: 2px solid var(--text-muted);
+  border-radius: var(--radius);
+  width: 100%;
+}
+.input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Page headings */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.page-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Alert / status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.badge-success {
+  background: #e8f3e6;
+  color: var(--success);
+}
+.badge-alert {
+  background: #f6e6e2;
+  color: var(--alert);
+}
