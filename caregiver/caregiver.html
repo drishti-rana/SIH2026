@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Caregiver Dashboard</title>
+
+    <link rel="stylesheet" href="caregiver.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Header -->
+        <header>
+            <div>
+                <p class="welcome">Care & Support</p>
+                <h1>👩‍⚕️ Caregiver Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <span>Caregiver</span>
+                <div class="profile-icon">👤</div>
+            </div>
+        </header>
+
+
+        <!-- Patient Overview -->
+        <section class="patient-overview">
+
+            <div class="patient-avatar">👩</div>
+
+            <div>
+                <p class="section-label">PATIENT OVERVIEW</p>
+                <h2 id="patientName">Mrs. Sharma</h2>
+
+                <div class="patient-details">
+                    <span>Age: <strong id="patientAge">68</strong></span>
+                    <span class="status">● Active Today</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Statistics Cards -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">🎮</div>
+                <p>Games Played</p>
+                <h2 id="gamesPlayed">12</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <p>Best Score</p>
+                <h2 id="bestScore">85</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <p>Progress</p>
+                <h2 id="progressValue">75%</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔔</div>
+                <p>Reminders</p>
+                <h2 id="pendingReminders">3 Pending</h2>
+            </div>
+
+        </section>
+
+
+        <!-- Main Content -->
+        <section class="content-grid">
+
+
+            <!-- Recent Activity -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h2>🕐 Recent Activity</h2>
+                    <span>Latest</span>
+                </div>
+
+                <div id="recentActivity" class="activity-list">
+                    <!-- JavaScript will add activities here -->
+                </div>
+
+            </div>
+
+
+            <!-- Progress -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h2>📊 Overall Progress</h2>
+                </div>
+
+                <div class="progress-content">
+
+                    <div class="progress-circle">
+                        <span id="progressCircle">75%</span>
+                    </div>
+
+                    <p>Patient is showing consistent improvement.</p>
+
+                    <div class="progress-bar-container">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Game Performance -->
+        <section class="card full-width">
+
+            <div class="card-header">
+                <h2>🎮 Game Performance</h2>
+                <span>Recent Results</span>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>Score</th>
+                            <th>Attempts</th>
+                            <th>Time Taken</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="gamePerformance">
+                        <!-- JavaScript data -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Reminder Status -->
+        <section class="card full-width">
+
+            <div class="card-header">
+                <h2>🔔 Reminder Status</h2>
+                <span>Today's Reminders</span>
+            </div>
+
+            <div id="reminderList" class="reminder-list">
+                <!-- JavaScript data -->
+            </div>
+
+        </section>
+
+
+        <!-- Overall Summary -->
+        <section class="summary">
+
+            <h2>📋 Overall Summary</h2>
+
+            <p id="overallSummary">
+                Mrs. Sharma is making steady progress and remains actively engaged.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="caregiver.js"></script>
+
+</body>
+</html>
