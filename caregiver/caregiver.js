@@ -1,10 +1,23 @@
-// MOCK PATIENT DATA
+/* =========================
+   MOCK PATIENT DATA
+   This can later be replaced
+   with actual data from the
+   Games, Progress and
+   Reminder modules.
+========================= */
 
 const patientData = {
+
+    // PATIENT OVERVIEW
 
     name: "Mrs. Sharma",
 
     age: 68,
+
+    status: "Active Today",
+
+
+    // DASHBOARD STATISTICS
 
     gamesPlayed: 12,
 
@@ -12,8 +25,8 @@ const patientData = {
 
     progress: 75,
 
-    pendingReminders: 3,
 
+    // RECENT ACTIVITY
 
     recentActivity: [
 
@@ -37,6 +50,8 @@ const patientData = {
 
     ],
 
+
+    // GAME PERFORMANCE
 
     gamePerformance: [
 
@@ -64,6 +79,8 @@ const patientData = {
     ],
 
 
+    // REMINDERS
+
     reminders: [
 
         {
@@ -79,6 +96,11 @@ const patientData = {
         {
             name: "Drink Water",
             status: "Pending"
+        },
+
+        {
+            name: "Evening Exercise",
+            status: "Pending"
         }
 
     ]
@@ -86,40 +108,108 @@ const patientData = {
 };
 
 
+/* =========================
+   CALCULATE PENDING REMINDERS
+========================= */
 
-// PATIENT INFORMATION
+const pendingReminderCount =
+    patientData.reminders.filter(
+        reminder => reminder.status === "Pending"
+    ).length;
+
+
+/* =========================
+   PATIENT INFORMATION
+========================= */
 
 document.getElementById("patientName").textContent =
     patientData.name;
 
+
 document.getElementById("patientAge").textContent =
     patientData.age;
+
+
+/* =========================
+   STATISTICS
+========================= */
 
 document.getElementById("gamesPlayed").textContent =
     patientData.gamesPlayed;
 
+
 document.getElementById("bestScore").textContent =
     patientData.bestScore;
+
 
 document.getElementById("progressValue").textContent =
     patientData.progress + "%";
 
-document.getElementById("progressCircle").textContent =
-    patientData.progress + "%";
 
 document.getElementById("pendingReminders").textContent =
-    patientData.pendingReminders + " Pending";
+    pendingReminderCount;
 
 
+/* =========================
+   PROGRESS DISPLAY
+========================= */
 
-// PROGRESS BAR
+document.getElementById("progressCircleValue").textContent =
+    patientData.progress + "%";
+
+
+document.getElementById("progressBarValue").textContent =
+    patientData.progress + "%";
+
 
 document.getElementById("progressBar").style.width =
     patientData.progress + "%";
 
 
+/* PROGRESS CIRCLE */
 
-// RECENT ACTIVITY
+const progressCircle =
+    document.getElementById("progressCircle");
+
+
+progressCircle.style.background =
+    `conic-gradient(
+        #4caf92 0% ${patientData.progress}%,
+        #edf0f4 ${patientData.progress}% 100%
+    )`;
+
+
+/* PROGRESS MESSAGE */
+
+const progressMessage =
+    document.getElementById("progressMessage");
+
+
+if (patientData.progress >= 80) {
+
+    progressMessage.textContent =
+        "Patient is showing excellent and consistent improvement.";
+
+}
+
+else if (patientData.progress >= 60) {
+
+    progressMessage.textContent =
+        "Patient is showing steady and consistent improvement.";
+
+}
+
+else {
+
+    progressMessage.textContent =
+        "Patient may require additional support and attention.";
+
+}
+
+
+/* =========================
+   RECENT ACTIVITY
+========================= */
 
 const activityContainer =
     document.getElementById("recentActivity");
@@ -127,33 +217,41 @@ const activityContainer =
 
 patientData.recentActivity.forEach(activity => {
 
-    activityContainer.innerHTML += `
+    const activityItem =
+        document.createElement("div");
 
-        <div class="activity-item">
 
-            <div class="activity-info">
+    activityItem.classList.add("activity-item");
 
-                <h3>${activity.game}</h3>
 
-                <p>${activity.time}</p>
+    activityItem.innerHTML = `
 
-            </div>
+        <div class="activity-info">
 
-            <div class="activity-score">
+            <h3>${activity.game}</h3>
 
-                Score: ${activity.score}
+            <p>${activity.time}</p>
 
-            </div>
+        </div>
+
+
+        <div class="activity-score">
+
+            Score: ${activity.score}
 
         </div>
 
     `;
 
+
+    activityContainer.appendChild(activityItem);
+
 });
 
 
-
-// GAME PERFORMANCE TABLE
+/* =========================
+   GAME PERFORMANCE
+========================= */
 
 const gamePerformanceContainer =
     document.getElementById("gamePerformance");
@@ -161,27 +259,31 @@ const gamePerformanceContainer =
 
 patientData.gamePerformance.forEach(game => {
 
-    gamePerformanceContainer.innerHTML += `
+    const row =
+        document.createElement("tr");
 
-        <tr>
 
-            <td>${game.game}</td>
+    row.innerHTML = `
 
-            <td>${game.score}</td>
+        <td>${game.game}</td>
 
-            <td>${game.attempts}</td>
+        <td>${game.score}</td>
 
-            <td>${game.time}</td>
+        <td>${game.attempts}</td>
 
-        </tr>
+        <td>${game.time}</td>
 
     `;
+
+
+    gamePerformanceContainer.appendChild(row);
 
 });
 
 
-
-// REMINDERS
+/* =========================
+   REMINDER STATUS
+========================= */
 
 const reminderContainer =
     document.getElementById("reminderList");
@@ -189,38 +291,51 @@ const reminderContainer =
 
 patientData.reminders.forEach(reminder => {
 
+    const reminderItem =
+        document.createElement("div");
+
+
+    reminderItem.classList.add("reminder-item");
+
+
     const statusClass =
         reminder.status === "Completed"
             ? "completed"
             : "pending";
 
 
-    reminderContainer.innerHTML += `
+    reminderItem.innerHTML = `
 
-        <div class="reminder-item">
+        <h3>${reminder.name}</h3>
 
-            <h3>${reminder.name}</h3>
+        <span class="reminder-status ${statusClass}">
 
-            <p class="reminder-status ${statusClass}">
+            ${reminder.status}
 
-                ${reminder.status}
-
-            </p>
-
-        </div>
+        </span>
 
     `;
+
+
+    reminderContainer.appendChild(reminderItem);
 
 });
 
 
+/* =========================
+   OVERALL SUMMARY
+========================= */
 
-// OVERALL SUMMARY
+const completedReminderCount =
+    patientData.reminders.filter(
+        reminder => reminder.status === "Completed"
+    ).length;
+
 
 document.getElementById("overallSummary").textContent =
 
-    `${patientData.name} has played ${patientData.gamesPlayed} games 
-    and is currently showing ${patientData.progress}% overall progress. 
-    The best score achieved is ${patientData.bestScore}. 
-    There are ${patientData.pendingReminders} pending reminders that 
-    may require attention.`;
+    `${patientData.name} has played ${patientData.gamesPlayed} games and is currently showing ${patientData.progress}% overall progress. ` +
+
+    `The best score achieved is ${patientData.bestScore}. ` +
+
+    `${completedReminderCount} reminder has been completed, while ${pendingReminderCount} reminders are still pending and may require attention.`;

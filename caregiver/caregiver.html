@@ -11,138 +11,222 @@
 
 <body>
 
-    <div class="dashboard">
+    <main class="dashboard">
 
-        <!-- Header -->
-        <header>
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
             <div>
-                <p class="welcome">Care & Support</p>
-                <h1>👩‍⚕️ Caregiver Dashboard</h1>
+                <p class="eyebrow">PATIENT CARE & MONITORING</p>
+                <h1>Caregiver Dashboard</h1>
+                <p class="header-description">
+                    Monitor the patient's activity, progress, games, and reminders.
+                </p>
             </div>
 
-            <div class="profile">
+            <div class="caregiver-badge">
+                <span class="caregiver-icon">👩‍⚕️</span>
                 <span>Caregiver</span>
-                <div class="profile-icon">👤</div>
             </div>
+
         </header>
 
 
-        <!-- Patient Overview -->
+        <!-- PATIENT OVERVIEW -->
         <section class="patient-overview">
 
-            <div class="patient-avatar">👩</div>
+            <div class="patient-avatar">
+                👩
+            </div>
 
-            <div>
+            <div class="patient-information">
+
                 <p class="section-label">PATIENT OVERVIEW</p>
+
                 <h2 id="patientName">Mrs. Sharma</h2>
 
                 <div class="patient-details">
-                    <span>Age: <strong id="patientAge">68</strong></span>
-                    <span class="status">● Active Today</span>
+
+                    <span>
+                        Age:
+                        <strong id="patientAge">68</strong>
+                    </span>
+
+                    <span class="active-status">
+                        <span class="status-dot"></span>
+                        Active Today
+                    </span>
+
                 </div>
+
             </div>
 
         </section>
 
 
-        <!-- Statistics Cards -->
+        <!-- STATISTICS -->
         <section class="stats-grid">
 
-            <div class="stat-card">
+            <article class="stat-card">
+
                 <div class="stat-icon">🎮</div>
+
                 <p>Games Played</p>
+
                 <h2 id="gamesPlayed">12</h2>
-            </div>
 
-            <div class="stat-card">
+            </article>
+
+
+            <article class="stat-card">
+
                 <div class="stat-icon">🏆</div>
+
                 <p>Best Score</p>
+
                 <h2 id="bestScore">85</h2>
-            </div>
 
-            <div class="stat-card">
+            </article>
+
+
+            <article class="stat-card">
+
                 <div class="stat-icon">📈</div>
-                <p>Progress</p>
-                <h2 id="progressValue">75%</h2>
-            </div>
 
-            <div class="stat-card">
+                <p>Overall Progress</p>
+
+                <h2 id="progressValue">75%</h2>
+
+            </article>
+
+
+            <article class="stat-card">
+
                 <div class="stat-icon">🔔</div>
-                <p>Reminders</p>
-                <h2 id="pendingReminders">3 Pending</h2>
-            </div>
+
+                <p>Pending Reminders</p>
+
+                <h2 id="pendingReminders">3</h2>
+
+            </article>
 
         </section>
 
 
-        <!-- Main Content -->
-        <section class="content-grid">
+        <!-- RECENT ACTIVITY AND PROGRESS -->
+        <section class="two-column-grid">
 
 
-            <!-- Recent Activity -->
-            <div class="card">
+            <!-- RECENT ACTIVITY -->
+            <article class="dashboard-card">
 
                 <div class="card-header">
-                    <h2>🕐 Recent Activity</h2>
-                    <span>Latest</span>
+
+                    <div>
+                        <h2>🕐 Recent Activity</h2>
+                        <p>Latest patient activities</p>
+                    </div>
+
                 </div>
 
                 <div id="recentActivity" class="activity-list">
-                    <!-- JavaScript will add activities here -->
+                    <!-- Activity data will be added using JavaScript -->
                 </div>
 
-            </div>
+            </article>
 
 
-            <!-- Progress -->
-            <div class="card">
+            <!-- PROGRESS -->
+            <article class="dashboard-card">
 
                 <div class="card-header">
-                    <h2>📊 Overall Progress</h2>
+
+                    <div>
+                        <h2>📊 Overall Progress</h2>
+                        <p>Current performance overview</p>
+                    </div>
+
                 </div>
+
 
                 <div class="progress-content">
 
-                    <div class="progress-circle">
-                        <span id="progressCircle">75%</span>
+                    <div id="progressCircle" class="progress-circle">
+
+                        <div class="progress-circle-inner">
+
+                            <span id="progressCircleValue">75%</span>
+
+                            <small>Progress</small>
+
+                        </div>
+
                     </div>
 
-                    <p>Patient is showing consistent improvement.</p>
+
+                    <p id="progressMessage" class="progress-message">
+                        Patient is showing steady improvement.
+                    </p>
+
+
+                    <div class="progress-bar-label">
+
+                        <span>Overall Performance</span>
+
+                        <strong id="progressBarValue">75%</strong>
+
+                    </div>
+
 
                     <div class="progress-bar-container">
-                        <div id="progressBar" class="progress-bar"></div>
+
+                        <div
+                            id="progressBar"
+                            class="progress-bar">
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+            </article>
 
         </section>
 
 
-        <!-- Game Performance -->
-        <section class="card full-width">
+        <!-- GAME PERFORMANCE -->
+        <section class="dashboard-card full-width">
 
             <div class="card-header">
-                <h2>🎮 Game Performance</h2>
-                <span>Recent Results</span>
+
+                <div>
+                    <h2>🎮 Game Performance</h2>
+                    <p>Recent game results and performance</p>
+                </div>
+
             </div>
+
 
             <div class="table-wrapper">
 
                 <table>
 
                     <thead>
+
                         <tr>
                             <th>Game</th>
                             <th>Score</th>
                             <th>Attempts</th>
                             <th>Time Taken</th>
                         </tr>
+
                     </thead>
 
+
                     <tbody id="gamePerformance">
-                        <!-- JavaScript data -->
+
+                        <!-- Game data will be added using JavaScript -->
+
                     </tbody>
 
                 </table>
@@ -152,33 +236,50 @@
         </section>
 
 
-        <!-- Reminder Status -->
-        <section class="card full-width">
+        <!-- REMINDER STATUS -->
+        <section class="dashboard-card full-width">
 
             <div class="card-header">
-                <h2>🔔 Reminder Status</h2>
-                <span>Today's Reminders</span>
+
+                <div>
+                    <h2>🔔 Reminder Status</h2>
+                    <p>Today's reminder overview</p>
+                </div>
+
             </div>
+
 
             <div id="reminderList" class="reminder-list">
-                <!-- JavaScript data -->
+
+                <!-- Reminder data will be added using JavaScript -->
+
             </div>
 
         </section>
 
 
-        <!-- Overall Summary -->
-        <section class="summary">
+        <!-- OVERALL SUMMARY -->
+        <section class="overall-summary">
 
-            <h2>📋 Overall Summary</h2>
+            <div class="summary-icon">
+                📋
+            </div>
 
-            <p id="overallSummary">
-                Mrs. Sharma is making steady progress and remains actively engaged.
-            </p>
+
+            <div>
+
+                <h2>Overall Summary</h2>
+
+                <p id="overallSummary">
+                    Patient information will be displayed here.
+                </p>
+
+            </div>
 
         </section>
 
-    </div>
+
+    </main>
 
 
     <script src="caregiver.js"></script>
