@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f9f6" />
+    <meta
+      name="description"
+      content="CareCue is a simple, private reminder system for keeping daily care tasks on track."
+    />
+    <title>CareCue · Reminder system</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="CareCue home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 28 28" fill="none">
+              <path d="M14 24.1S3.75 18.2 3.75 10.6A5.3 5.3 0 0 1 14 8.42a5.3 5.3 0 0 1 10.25 2.18C24.25 18.2 14 24.1 14 24.1Z" fill="currentColor"/>
+              <path d="M9.2 13.85h3.05l1.25-3.15 2.15 6.4 1.2-3.25h2.95" stroke="white" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>
+            <strong>CareCue</strong>
+            <small>daily care, made simpler</small>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <span class="privacy-note">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3 5.5 5.5v5.7c0 4.3 2.75 7.92 6.5 9.3 3.75-1.38 6.5-5 6.5-9.3V5.5L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="m9.3 12 1.75 1.75 3.7-3.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Stored on this device
+          </span>
+          <button class="icon-button" id="helpButton" type="button" aria-label="About CareCue" title="About CareCue">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M9.75 9.25a2.35 2.35 0 1 1 3.63 1.96c-.83.55-1.38 1-1.38 2.04" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="12" cy="16.6" r=".9" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="welcome-row" aria-labelledby="pageTitle">
+          <div>
+            <p class="eyebrow" id="todayLabel">Sunday, September 6</p>
+            <h1 id="pageTitle">Good morning, <span>let’s make today easier.</span></h1>
+            <p class="welcome-copy">Keep the little things visible, one reminder at a time.</p>
+          </div>
+          <button class="primary-button desktop-add" type="button" data-focus-form>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Add reminder
+          </button>
+        </section>
+
+        <section class="stats-grid" aria-label="Reminder overview">
+          <article class="stat-card pending-stat">
+            <div class="stat-icon">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M12 7.8v4.7l3.1 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="stat-label">Pending</span>
+              <strong id="pendingCount">0</strong>
+              <small>still to take care of</small>
+            </div>
+          </article>
+          <article class="stat-card completed-stat">
+            <div class="stat-icon">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/>
+                <path d="m8.3 12.25 2.45 2.45 4.95-5.15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="stat-label">Completed today</span>
+              <strong id="completedCount">0</strong>
+              <small>nice work keeping on track</small>
+            </div>
+          </article>
+          <article class="stat-card total-stat">
+            <div class="stat-icon">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M7.2 4.75h9.6a2 2 0 0 1 2 2v12.5H5.2V6.75a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M8.5 3.75v2M15.5 3.75v2M8.5 10.25h7M8.5 14h4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="stat-label">Total reminders</span>
+              <strong id="totalCount">0</strong>
+              <small>saved on this device</small>
+            </div>
+          </article>
+        </section>
+
+        <section class="progress-card" aria-labelledby="progressTitle">
+          <div class="progress-copy">
+            <div class="section-kicker">
+              <span class="sparkle" aria-hidden="true">✦</span>
+              <span id="progressTitle">Today’s progress</span>
+            </div>
+            <strong id="progressMessage">A clear start makes a calmer day.</strong>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-track" role="progressbar" aria-label="Today's completed reminders" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="progressBar"></span>
+            </div>
+            <span class="progress-percent" id="progressPercent">0%</span>
+          </div>
+        </section>
+
+        <div class="workspace-grid">
+          <section class="reminders-panel panel" aria-labelledby="remindersTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Your list</p>
+                <h2 id="remindersTitle">Reminders</h2>
+              </div>
+              <div class="filter-tabs" role="tablist" aria-label="Filter reminders">
+                <button class="filter-tab is-active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="pending">Pending</button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="completed">Completed</button>
+              </div>
+            </div>
+            <div class="list-meta">
+              <span id="listSummary">No reminders yet</span>
+              <button class="text-button" type="button" id="clearCompletedButton" hidden>Clear completed</button>
+            </div>
+            <div id="reminderList" class="reminder-list" aria-live="polite"></div>
+          </section>
+
+          <aside class="add-panel panel" id="addPanel" aria-labelledby="formTitle">
+            <div class="add-panel-heading">
+              <div class="form-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7.5 10.2V7.9a4.5 4.5 0 1 1 9 0v2.3M5.2 10.3h13.6l-1.05 9.05H6.25L5.2 10.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M12 13.1v3.15M10.42 14.68h3.16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <p class="eyebrow">Stay on track</p>
+                <h2 id="formTitle">Add a reminder</h2>
+              </div>
+            </div>
+            <form id="reminderForm">
+              <div class="field-group">
+                <label for="reminderTitle">What do you need to remember?</label>
+                <input id="reminderTitle" name="title" type="text" maxlength="100" placeholder="e.g. Take morning medication" autocomplete="off" required />
+              </div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="reminderDate">Date</label>
+                  <input id="reminderDate" name="date" type="date" required />
+                </div>
+                <div class="field-group">
+                  <label for="reminderTime">Time</label>
+                  <input id="reminderTime" name="time" type="time" required />
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="reminderNote">Note <span>(optional)</span></label>
+                <textarea id="reminderNote" name="note" rows="3" maxlength="180" placeholder="Add a little helpful detail…"></textarea>
+              </div>
+              <button class="primary-button form-submit" type="submit">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Save reminder
+              </button>
+              <p class="form-footnote">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3 5.5 5.5v5.7c0 4.3 2.75 7.92 6.5 9.3 3.75-1.38 6.5-5 6.5-9.3V5.5L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="m9.3 12 1.75 1.75 3.7-3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Your reminders stay private in this browser.
+              </p>
+            </form>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <span><span class="footer-dot" aria-hidden="true"></span> A small step is still a step.</span>
+        <span>CareCue <span id="footerYear">2026</span></span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span class="toast-check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="m6.8 12.2 3.4 3.4 7-7.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span id="toastMessage">Reminder saved</span>
+    </div>
+
+    <dialog class="about-dialog" id="aboutDialog" aria-labelledby="aboutTitle">
+      <button class="dialog-close icon-button" id="closeDialogButton" type="button" aria-label="Close about dialog">×</button>
+      <div class="dialog-mark" aria-hidden="true">✦</div>
+      <p class="eyebrow">A note from CareCue</p>
+      <h2 id="aboutTitle">Designed for a little more ease.</h2>
+      <p>CareCue keeps reminders simple and close at hand. It does not send notifications or replace medical advice; it is a gentle visual checklist for everyday care.</p>
+      <button class="primary-button dialog-button" id="dialogDoneButton" type="button">Got it</button>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
