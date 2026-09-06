@@ -1,0 +1,153 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	background-color: #f5f7fa;
+	padding: 20px;
+	color: #333;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2.2rem;
+	margin-bottom: 30px;
+	color: #2c3e50;
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+
+.card {
+	background: white;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+	width: 160px;
+	text-align: center;
+}
+
+.card h3 {
+	font-size: 1rem;
+	color: #7f8c8d;
+	margin-bottom: 10px;
+}
+
+.card p {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #2c3e50;
+}
+
+.section {
+	background: white;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+	margin-bottom: 30px;
+}
+
+.section h2 {
+	margin-bottom: 20px;
+	color: #2c3e50;
+}
+
+#recentActivity {
+	list-style: none;
+}
+
+#recentActivity li {
+	padding: 12px 0;
+	border-bottom: 1px solid #eee;
+	font-size: 1.1rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 35px;
+    color: #1a365d;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 28px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 170px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.05rem;
+    color: #718096;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.section {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    margin-bottom: 22px;
+    color: #1a365d;
+    font-size: 1.5rem;
+}
+
+#recentActivity {
+    list-style: none;
+}
+
+#recentActivity li {
+    padding: 14px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.15rem;
+}

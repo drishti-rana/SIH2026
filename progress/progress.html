@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Progress - MindMitra</title>
+	<link rel="stylesheet" href="progress.css">
+</head>
+<body>
+
+	<div class="container">
+		<h1>My Progress</h1>
+
+		<!-- Summary Cards -->
+		<div class="cards">
+			<div class="card">
+				<h3>Games Played</h3>
+				<p id="gamesPlayed">0</p>
+			</div>
+			<div class="card">
+				<h3>Best Score</h3>
+				<p id="bestScore">0</p>
+			</div>
+			<div class="card">
+				<h3>Average Score</h3>
+				<p id="avgScore">0</p>
+			</div>
+			<div class="card">
+				<h3>Total Attempts</h3>
+				<p id="totalAttempts">0</p>
+			</div>
+			<div class="card">
+				<h3>Average Time</h3>
+				<p id="avgTime">0 min</p>
+			</div>
+		</div>
+
+		<!-- Progress Chart -->
+		<div class="section">
+			<h2>Progress</h2>
+			<canvas id="progressChart" width="400" height="200"></canvas>
+		</div>
+
+		<!-- Recent Activity -->
+		<div class="section">
+			<h2>Recent Activity</h2>
+			<ul id="recentActivity">
+				<!-- JavaScript will fill this -->
+			</ul>
+		</div>
+	</div>
+
+	<!-- Chart.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="progress.js"></script>
+</body>
+</html>
