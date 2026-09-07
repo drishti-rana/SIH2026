@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Journey - Level 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <!-- HEADER -->
+        <header class="game-header">
+            <div>
+                <h1>🧠 Memory Journey</h1>
+                <p>Level 1 · Recognition</p>
+            </div>
+
+            <div class="progress-container">
+                <span id="roundText">Round 1 / 9</span>
+                <div class="progress-bar">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- WELCOME SCREEN -->
+        <section id="welcomeScreen" class="screen active">
+
+            <div class="welcome-icon">🌷</div>
+
+            <h2>Welcome to Level 1</h2>
+
+            <p class="large-text">
+                Let's explore some simple memory games together.
+            </p>
+
+            <p>
+                Take your time. There is no rush.
+            </p>
+
+            <button class="primary-button" onclick="startLevel()">
+                Start Level 1
+            </button>
+
+        </section>
+
+
+        <!-- GAME SCREEN -->
+        <section id="gameScreen" class="screen">
+
+            <div class="game-info">
+                <span id="gameNumber">Game 1 of 3</span>
+                <span id="gameName">Find the Match</span>
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="gameArea"></div>
+
+            <div id="feedback"></div>
+
+            <button id="hintButton"
+                    class="hint-button"
+                    onclick="showHint()">
+                💡 Need a hint?
+            </button>
+
+            <button id="nextButton"
+                    class="primary-button hidden"
+                    onclick="nextRound()">
+                Continue
+            </button>
+
+        </section>
+
+
+        <!-- LEVEL COMPLETE -->
+        <section id="completeScreen" class="screen">
+
+            <div class="complete-icon">🎉</div>
+
+            <h2>Wonderful!</h2>
+
+            <p class="large-text">
+                You completed Level 1!
+            </p>
+
+            <div class="results">
+                <div>🧩 Find the Match ✓</div>
+                <div>🔍 Which One Is Different? ✓</div>
+                <div>👀 Pick the Object ✓</div>
+            </div>
+
+            <button class="primary-button" onclick="showComingSoon()">
+                Continue to Level 2
+            </button>
+
+            <button class="secondary-button" onclick="restartLevel()">
+                Play Level 1 Again
+            </button>
+
+        </section>
+
+
+        <!-- LEVEL 2 SCREEN -->
+        <section id="level2Screen" class="screen">
+
+            <div class="lock-icon">🔒</div>
+
+            <h2>Level 2</h2>
+
+            <p class="large-text">
+                More memory adventures are coming soon!
+            </p>
+
+            <button class="secondary-button" onclick="restartLevel()">
+                Play Level 1 Again
+            </button>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
